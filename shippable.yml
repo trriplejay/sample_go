@@ -6,11 +6,17 @@ go:
   - 1.9.2
 
 build:
+  # pre_ci_boot:
+  #   image_name: trriplejay/golang
+  #   image_tag: test
   ci:
+    - go version
+    - go test
     - go run hello.go
   on_success:
     - echo "works"
-
+  on_failure:
+    - echo "not good"
 
 
 
@@ -28,3 +34,44 @@ jobs:
     steps:
       - OUT: myGoTestRepo
         replicate: sample_go_ciRepo
+
+  - name: myGoTestRunSh
+    type: runSh
+    steps:
+      - IN: myGoTestRepo
+      - TASK:
+          name: TestGo176
+          runtime:
+            options:
+              imageName: trriplejay/golang
+              imageTag: test
+          script:
+            - gvm use 1.7.6
+            - pushd $MYGOTESTREPO_STATE
+            - go version
+            - go test
+            - go run hello.go
+      - TASK:
+          name: TestGo185
+          runtime:
+            options:
+              imageName: trriplejay/golang
+              imageTag: test
+          script:
+            - gvm use 1.8.5
+            - pushd $MYGOTESTREPO_STATE
+            - go version
+            - go test
+            - go run hello.go
+      - TASK:
+          name: TestGo192
+          runtime:
+            options:
+              imageName: trriplejay/golang
+              imageTag: test
+          script:
+            - gvm use 1.9.2
+            - pushd $MYGOTESTREPO_STATE
+            - go version
+            - go test
+            - go run hello.go
