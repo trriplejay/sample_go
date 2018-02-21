@@ -6,13 +6,15 @@ go:
   - 1.9.2
 
 build:
-  # pre_ci_boot:
-  #   image_name: trriplejay/golang
-  #   image_tag: test
+  pre_ci_boot:
+    image_name: trriplejay/golang
+    image_tag: test
   ci:
+    - printenv
     - go version
     - go test
     - go run hello.go
+
   on_success:
     - echo "works"
   on_failure:
@@ -46,6 +48,7 @@ jobs:
               imageName: trriplejay/golang
               imageTag: test
           script:
+            - [[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
             - gvm use 1.7.6
             - pushd $MYGOTESTREPO_STATE
             - go version
@@ -58,6 +61,7 @@ jobs:
               imageName: trriplejay/golang
               imageTag: test
           script:
+            - [[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
             - gvm use 1.8.5
             - pushd $MYGOTESTREPO_STATE
             - go version
@@ -70,6 +74,7 @@ jobs:
               imageName: trriplejay/golang
               imageTag: test
           script:
+            - [[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
             - gvm use 1.9.2
             - pushd $MYGOTESTREPO_STATE
             - go version
