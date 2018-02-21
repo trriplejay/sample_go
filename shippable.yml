@@ -10,6 +10,8 @@ build:
     image_name: trriplejay/golang
     image_tag: test
   ci:
+    - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
+    - gvm use $SHIPPABLE_GO_VERSION
     - printenv
     - go version
     - go test
