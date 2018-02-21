@@ -15,14 +15,14 @@ build:
 
 
 resources:
-  name: myGoTestRepo
+- name: myGoTestRepo
   type: gitRepo
   versionTemplate:
     sourceName: trriplejay/sample_go
     branch: master
 
 jobs:
-  name: sample_go_runCI
+- name: sample_go_runCI
   type: runCI
   steps:
     - OUT: myGoTestRepo
