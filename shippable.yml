@@ -12,7 +12,7 @@ build:
   ci:
     - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
     - gvm use $SHIPPABLE_GO_VERSION
-    - cat /etc/dryodck/.env
+    - cat /etc/drydock/.env
     - printenv
     - go version
     - go test
