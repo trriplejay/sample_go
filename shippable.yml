@@ -12,6 +12,7 @@ build:
   ci:
     - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
     - gvm use $SHIPPABLE_GO_VERSION
+    - cat /etc/dryodck/.env
     - printenv
     - go version
     - go test
@@ -33,11 +34,6 @@ resources:
       branch: master
 
 jobs:
-  - name: sample_go_runCI
-    type: runCI
-    steps:
-      - OUT: myGoTestRepo
-        replicate: sample_go_ciRepo
 
   - name: myGoTestRunSh
     type: runSh
