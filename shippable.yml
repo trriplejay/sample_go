@@ -10,7 +10,7 @@ build:
     image_name: drydock/u14golall
     image_tag: master
   ci:
-    - echo "try a colon: does it work?"
+    - 'echo "try a colon: does it work?"'
     - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
     - gvm use $SHIPPABLE_GO_VERSION
     - cat /etc/drydock/.env
