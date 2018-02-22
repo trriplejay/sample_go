@@ -7,8 +7,8 @@ go:
 
 build:
   pre_ci_boot:
-    image_name: trriplejay/golang
-    image_tag: test
+    image_name: drydock/u14golall
+    image_tag: master
   ci:
     - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
     - gvm use $SHIPPABLE_GO_VERSION
@@ -43,8 +43,8 @@ jobs:
           name: TestGo176
           runtime:
             options:
-              imageName: trriplejay/golang
-              imageTag: test
+              imageName: drydock/u14golall
+              imageTag: master
           script:
             - docker images
             - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
@@ -57,8 +57,8 @@ jobs:
           name: TestGo185
           runtime:
             options:
-              imageName: trriplejay/golang
-              imageTag: test
+              imageName: drydock/u14golall
+              imageTag: master
           script:
             - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
             - gvm use 1.8.5
@@ -70,8 +70,8 @@ jobs:
           name: TestGo192
           runtime:
             options:
-              imageName: trriplejay/golang
-              imageTag: test
+              imageName: drydock/u14golall
+              imageTag: master
           script:
             - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
             - gvm use 1.9.2
