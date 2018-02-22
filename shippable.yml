@@ -37,6 +37,7 @@ jobs:
 
   - name: myGoTestRunSh
     type: runSh
+    allowPublicAccess: true
     steps:
       - IN: myGoTestRepo
       - TASK:
