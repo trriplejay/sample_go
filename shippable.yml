@@ -47,6 +47,7 @@ jobs:
               imageName: drydock/u14golall
               imageTag: master
           script:
+            - echo "test a colon: did that work?"
             - docker images
             - '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm'
             - gvm use 1.7.6
