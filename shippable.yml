@@ -5,6 +5,9 @@ go:
   - 1.8.5
   - 1.9.2
 
+runtime:
+  - nodePool: testaSecond
+
 build:
   pre_ci_boot:
     image_name: drydock/u14golall
@@ -31,7 +34,7 @@ resources:
     type: gitRepo
     integration: github
     versionTemplate:
-      sourceName: trriplejay/sample_go
+      sourceName: trriplejay/shippable_go_test
       branch: master
 
 jobs:
