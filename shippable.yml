@@ -6,7 +6,7 @@ go:
   - 1.9.2
 
 runtime:
-  cluster: testaSecond
+  nodePool: testaSecond
 
 build:
   pre_ci_boot:
