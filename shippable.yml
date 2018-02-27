@@ -45,6 +45,12 @@ jobs:
     steps:
       - IN: myGoTestRepo
       - TASK:
+          name: seccomp
+          runtime:
+            container: false
+          script: cat /boot/config-`uname -r` | grep CONFIG_SECCOMP=
+            
+      - TASK:
           name: TestGo176
           runtime:
             options:
