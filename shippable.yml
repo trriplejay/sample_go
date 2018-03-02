@@ -38,6 +38,11 @@ resources:
       branch: master
 
 jobs:
+  - name: shippable_go_test_runCI
+    type: runCI
+    steps:
+      - OUT: myGoTestRepo
+        replicate: shippable_go_test_ciRepo
 
   - name: myGoTestRunSh
     type: runSh
