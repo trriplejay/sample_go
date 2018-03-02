@@ -5,9 +5,6 @@ go:
   - 1.8.5
   - 1.9.2
 
-runtime:
-  nodePool: testaSecond
-
 build:
   pre_ci_boot:
     image_name: drydock/u14golall
@@ -54,7 +51,7 @@ jobs:
           runtime:
             container: false
           script: cat /boot/config-`uname -r` | grep CONFIG_SECCOMP=
-            
+
       - TASK:
           name: TestGo176
           runtime:
