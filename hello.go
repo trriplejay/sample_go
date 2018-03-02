@@ -9,5 +9,5 @@ func Sum(x int, y int) int {
 func main () {
   fmt.Println("Hello world")
   fmt.Println("The total is:", Sum(4, 6));
-  fmt.Println("The total is:", Sum(1, 1));
+  fmt.Println("The total is:", Sum(3, 3));
 }
